@@ -6,9 +6,32 @@
   </div>
 </div>
 
-<div *ngIf="!registerModeMahasiswa">
+<div class="container mt-5" *ngIf="!registerModeMahasiswa">
   <button class="btn btn-primary" (click)="registerToggle()">Tambah Mahasiswa</button>
-<p *ngFor="let mahasiswa of mahasiswas">
-  {{mahasiswa.nim}}, {{mahasiswa.namaMhs}}, {{mahasiswa.alamat}}
-</p>
+
+<div class="row">
+  <nav class="navbar">
+    <input class="form=control" type="text" name="search">
+  </nav>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>NIM</th>
+        <th>Nama</th>
+        <th>Tanggal Lahir</th>
+        <th>Alamat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mahasiswa of mahasiswas; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{mahasiswa.nim}}</td>
+        <td>{{mahasiswa.namaMhs}}</td>
+        <td>{{mahasiswa.tglLahir}}</td>
+        <td>{{mahasiswa.alamat}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>
