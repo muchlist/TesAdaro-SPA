@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegisService } from '../_services/regis.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-register-mahasiswa',
@@ -11,22 +12,22 @@ export class RegisterMahasiswaComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
 
-  constructor(private regisService: RegisService) { }
+  constructor(private regisService: RegisService,private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
   register() {
     this.regisService.registerMahasiswa(this.model).subscribe(() => {
-      console.log('success');
+      this.alertify.success('Mahasiswa Ditambahkan');
     }, error => {
-      console.log('error');
+      this.alertify.error(error);
     });
   }
 
   cancel() {
     this.cancelRegister.emit(false);
-    console.log('batal');
+    this.alertify.message('Batal');
   }
 
 }

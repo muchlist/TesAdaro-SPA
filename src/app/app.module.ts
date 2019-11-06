@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,22 +11,37 @@ import { NavComponent } from './nav/nav.component';
 import { RegisService } from './_services/regis.service';
 import { RegisterMahasiswaComponent } from './register-mahasiswa/register-mahasiswa.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { AlertifyService } from './_services/alertify.service';
+import { DosenComponent } from './dosen/dosen.component';
+import { RegisterDosenComponent } from './register-dosen/register-dosen.component';
+import { MataKuliahComponent } from './mata-kuliah/mata-kuliah.component';
+import { RegisterMataKuliahComponent } from './register-mata-kuliah/register-mata-kuliah.component';
+import { PerkuliahanComponent } from './perkuliahan/perkuliahan.component';
+import { RegisterPerkuliahanComponent } from './register-perkuliahan/register-perkuliahan.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       MahasiswaComponent,
       NavComponent,
-      RegisterMahasiswaComponent
+      RegisterMahasiswaComponent,
+      DosenComponent,
+      RegisterDosenComponent,
+      MataKuliahComponent,
+      RegisterMataKuliahComponent,
+      PerkuliahanComponent,
+      RegisterPerkuliahanComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      BsDropdownModule.forRoot()
    ],
    providers: [
       RegisService,
+      AlertifyService,
       ErrorInterceptorProvider
    ],
    bootstrap: [
