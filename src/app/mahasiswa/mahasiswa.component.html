@@ -1,0 +1,14 @@
+<div *ngIf="registerModeMahasiswa" class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-register-mahasiswa (cancelRegister)="cancelRegisterMode($event)"></app-register-mahasiswa>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!registerModeMahasiswa">
+  <button class="btn btn-primary" (click)="registerToggle()">Tambah Mahasiswa</button>
+<p *ngFor="let mahasiswa of mahasiswas">
+  {{mahasiswa.nim}}, {{mahasiswa.namaMhs}}, {{mahasiswa.alamat}}
+</p>
+</div>

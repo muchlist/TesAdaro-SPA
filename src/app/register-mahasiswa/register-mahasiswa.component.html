@@ -1,0 +1,26 @@
+<form #registerMahasiswaForm="ngForm" (ngSubmit)="register()">
+  <h2 class="text-center text-primary">Register Mahasiswa</h2>
+  <hr>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="nim" [(ngModel)]="model.nim" placeholder="NIM"> </div>
+  <div class="form-group">
+    <input type="text" class="form-control" required name="namaMhs" [(ngModel)]="model.namaMhs"
+      placeholder="Nama Mahasiswa">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" required name="tglLahir" [(ngModel)]="model.tglLahir"
+      placeholder="Tanggal Lahir">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" required name="alamat" [(ngModel)]="model.alamat" placeholder="Alamat">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" required name="jenisKelamin" [(ngModel)]="model.jenisKelamin"
+      placeholder="Jenis Kelamin">
+  </div>
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" type="submit">Register</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Batal</button>
+  </div>
+</form>
