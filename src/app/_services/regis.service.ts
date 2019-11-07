@@ -12,4 +12,16 @@ export class RegisService {
   registerMahasiswa(model: any) {
     return this.http.post(this.baseUrl + 'mahasiswa', model);
   }
+
+  registerDosen(model: any) {
+    return this.http.post(this.baseUrl + 'dosen', model);
+  }
+
+  registerMataKuliah(model: any) {
+    return this.http.post(this.baseUrl + 'matakuliah', model);
+  }
+
+  registerPerkuliahan(model: any) {
+    return this.http.post(this.baseUrl + 'perkuliahan', model);
+  }
 }

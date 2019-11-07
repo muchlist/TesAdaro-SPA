@@ -1,3 +1,53 @@
-<p>
-  dosen works!
-</p>
+<div class="container mt-3" *ngIf="!registerModeDosen">
+    <h2 class="text text-primary">Data Dosen</h2>
+    <hr>
+    <nav class="navbar">
+      <div class="col-sm-12 col-md-6">
+        <div id="example_filter" class="dataTables_filter">
+          <label>Search:
+            <input class="form-control pull-right" type="text" name="search" [(ngModel)]="filter">
+          </label>
+        </div>
+      </div>
+  
+  
+      <button class="btn btn-primary" (click)="registerToggle()">Tambah Dosen</button>
+  
+  
+    </nav>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 25.00%">NIP</th>
+            <th style="width: 65.00%">Nama Dosen</th>
+            <th style="width: 10.00%">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let dosen of dosens | filter:filter| paginate: {itemsPerPage:5,currentPage:p} ; let i = index">
+            <td>{{dosen.nip}}</td>
+            <td>{{dosen.namaDosen}}</td>
+            <td>
+              <div>
+                <button class="btn btn-danger" (click)="deleteDosen(dosen.id)">Hapus</button>
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <pagination-controls class="pagination pull-right" (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+
+<!-- REGISTER -->
+  <div *ngIf="registerModeDosen" class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <app-register-dosen (cancelRegister)="cancelRegisterMode($event)" (updateDosen)="getDosen()">
+          </app-register-dosen>
+        </div>
+      </div>
+    </div>

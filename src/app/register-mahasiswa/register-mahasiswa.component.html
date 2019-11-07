@@ -15,12 +15,24 @@
   <div class="form-group">
     <input type="text" class="form-control" required name="alamat" [(ngModel)]="model.alamat" placeholder="Alamat">
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <input type="text" class="form-control" required name="jenisKelamin" [(ngModel)]="model.jenisKelamin"
       placeholder="Jenis Kelamin">
-  </div>
-  <div class="form-group text-center">
-    <button class="btn btn-success mr-2" type="submit">Register</button>
+  </div> -->
+
+
+  <div class="form-check form-check-inline">
+      <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Laki-laki" [(ngModel)]="model.jenisKelamin">
+      <label class="form-check-label" for="inlineRadio1">Laki-laki</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Perempuan" [(ngModel)]="model.jenisKelamin">
+      <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+    </div>
+
+
+  <div class="form-group text-center mt-3">
+    <button class="btn btn-success mr-2" [disabled]="!registerMahasiswaForm.valid" type="submit">Register</button>
     <button class="btn btn-default" type="button" (click)="cancel()">Batal</button>
   </div>
 </form>

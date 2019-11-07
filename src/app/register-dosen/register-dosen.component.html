@@ -1,3 +1,16 @@
-<p>
-  register-dosen works!
-</p>
+<form #registerDosenForm="ngForm" (ngSubmit)="register()">
+  <h2 class="text-center text-primary">Register Dosen</h2>
+  <hr>
+
+  <div class="form-group">
+    <input type="number" class="form-control" required name="nip" [(ngModel)]="model.nip" placeholder="NIP">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" required name="namaDosen" [(ngModel)]="model.namaDosen"
+      placeholder="Nama Dosen">
+  </div>
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" [disabled]="!registerDosenForm.valid" type="submit">Register</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Batal</button>
+  </div>
+</form>

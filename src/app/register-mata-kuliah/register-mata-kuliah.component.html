@@ -1,3 +1,20 @@
-<p>
-  register-mata-kuliah works!
-</p>
+<form #registerDosenForm="ngForm" (ngSubmit)="register()">
+    <h2 class="text-center text-primary">Tambah Mata Kuliah</h2>
+    <hr>
+  
+    <div class="form-group">
+      <input type="text" class="form-control" required name="kodeMK" [(ngModel)]="model.kodeMK" placeholder="Kode Mata Kuliah">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" required name="namaMK" [(ngModel)]="model.namaMK"
+        placeholder="Nama Mata Kuliah">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" required name="sks" [(ngModel)]="model.sks"
+        placeholder="SKS">
+    </div>
+    <div class="form-group text-center">
+      <button class="btn btn-success mr-2" [disabled]="!registerDosenForm.valid" type="submit">Tambahkan</button>
+      <button class="btn btn-default" type="button" (click)="cancel()">Batal</button>
+    </div>
+  </form>

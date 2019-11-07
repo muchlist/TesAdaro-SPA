@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-mahasiswa',
@@ -11,7 +12,7 @@ export class MahasiswaComponent implements OnInit {
   mahasiswas: any;
   registerModeMahasiswa = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.getMahasiswa();
@@ -21,7 +22,7 @@ export class MahasiswaComponent implements OnInit {
     this.http.get(this.baseUrl + 'mahasiswa').subscribe(respose => {
       this.mahasiswas = respose;
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     }
     );
   }

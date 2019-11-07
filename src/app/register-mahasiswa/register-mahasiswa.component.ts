@@ -10,6 +10,7 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class RegisterMahasiswaComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
+  @Output() updateMahasiswa = new EventEmitter();
   model: any = {};
 
   constructor(private regisService: RegisService,private alertify: AlertifyService) { }
@@ -22,12 +23,13 @@ export class RegisterMahasiswaComponent implements OnInit {
       this.alertify.success('Mahasiswa Ditambahkan');
     }, error => {
       this.alertify.error(error);
+    }, () => {
+      this.updateMahasiswa.emit();
     });
   }
 
   cancel() {
     this.cancelRegister.emit(false);
-    this.alertify.message('Batal');
   }
 
 }
