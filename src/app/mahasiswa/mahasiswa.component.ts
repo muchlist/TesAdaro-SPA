@@ -10,7 +10,9 @@ import { AlertifyService } from '../_services/alertify.service';
 export class MahasiswaComponent implements OnInit {
   baseUrl = 'http://localhost:5000/api/';
   mahasiswas: any;
+  mahasiswaIdClick: number;
   registerModeMahasiswa = false;
+  detailModeMahasiswa = false;
 
   constructor(private http: HttpClient, private alertify: AlertifyService) { }
 
@@ -33,6 +35,16 @@ export class MahasiswaComponent implements OnInit {
 
   cancelRegisterMode(registerMode: boolean) {
     this.registerModeMahasiswa = registerMode;
+  }
+
+  detailToggle(mahasiswaId: number) {
+    this.mahasiswaIdClick = mahasiswaId;
+    return this.detailModeMahasiswa = true;
+  }
+
+
+  cancelDetailMode(registerMode: boolean) {
+    this.detailModeMahasiswa = registerMode;
   }
 
 }

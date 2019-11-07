@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Informasi Umum</h1>
+      <hr>
+      <table class="table">
+        <tr>
+          <td>Nama</td>
+          <td>{{model.namaMhs}}</td>
+        </tr>
+        <tr>
+          <td>NIM</td>
+          <td>{{model.nim}}</td>
+        </tr>
+        <tr>
+          <td>Tanggal Lahir</td>
+          <td>{{model.tglLahir}}</td>
+        </tr>
+        <tr>
+          <td>Alamat</td>
+          <td>{{model.alamat}}</td>
+        </tr>
+        <tr>
+          <td>Jenis kelamin</td>
+          <td>{{model.jenisKelamin}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm">
+      <h1>Perkuliahan</h1>
+      <hr>
+
+
+      <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nilai</th>
+              <th>DosenId</th>
+              <th>MataKuliahId</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let perkuliahan of model.perkuliahans | filter:filter| paginate: {itemsPerPage:5,currentPage:p} ; let i = index">
+              <td>{{perkuliahan.nilai}}</td>
+              <td>{{perkuliahan.dosenId}}</td>
+              <td>{{perkuliahan.mataKuliahId}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <pagination-controls class="pagination pull-right" (pageChange)="p = $event"></pagination-controls>
+
+
+
+    </div>
+  </div>
+</div>

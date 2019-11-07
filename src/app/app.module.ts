@@ -20,6 +20,9 @@ import { MataKuliahComponent } from './mata-kuliah/mata-kuliah.component';
 import { RegisterMataKuliahComponent } from './register-mata-kuliah/register-mata-kuliah.component';
 import { PerkuliahanComponent } from './perkuliahan/perkuliahan.component';
 import { RegisterPerkuliahanComponent } from './register-perkuliahan/register-perkuliahan.component';
+import { DetailMahasiswaComponent } from './detail-mahasiswa/detail-mahasiswa.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
    declarations: [
@@ -32,7 +35,8 @@ import { RegisterPerkuliahanComponent } from './register-perkuliahan/register-pe
       MataKuliahComponent,
       RegisterMataKuliahComponent,
       PerkuliahanComponent,
-      RegisterPerkuliahanComponent
+      RegisterPerkuliahanComponent,
+      DetailMahasiswaComponent
    ],
    imports: [
       BrowserModule,
@@ -41,7 +45,9 @@ import { RegisterPerkuliahanComponent } from './register-perkuliahan/register-pe
       FormsModule,
       BsDropdownModule.forRoot(),
       Ng2SearchPipeModule,
-      NgxPaginationModule
+      NgxPaginationModule,
+      BsDatepickerModule.forRoot(),
+      BrowserAnimationsModule
    ],
    providers: [
       RegisService,
