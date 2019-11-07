@@ -21,9 +21,9 @@
         <tr>
           <th style="width: 25.00%">Mahasiswa</th>
           <th style="width: 20.00%">Mata Kuliah</th>
-          <th style="width: 10.00%">Nilai</th>
+          <th style="width: 15.00%">Nilai</th>
           <th style="width: 25.00%">Dosen</th>
-          <th style="width: 20.00%">Aksi</th>
+          <th style="width: 15.00%">Aksi</th>
         </tr>
       </thead>
       <tbody>
@@ -35,8 +35,8 @@
           <td>{{perkuliahan.dosen.namaDosen}}</td>
           <td>
             <div>
-              <button class="btn btn-light mr-1" (click)="registerToggle()">Ubah</button>
-              <button class="btn btn-danger" (click)="registerToggle()">Hapus</button>
+              <button class="btn btn-outline-info mr-1" (click)="registerToggle()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+              <button class="btn btn-outline-danger" (click)="registerToggle()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </div>
           </td>
         </tr>

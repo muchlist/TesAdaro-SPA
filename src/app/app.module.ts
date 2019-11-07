@@ -23,6 +23,7 @@ import { RegisterPerkuliahanComponent } from './register-perkuliahan/register-pe
 import { DetailMahasiswaComponent } from './detail-mahasiswa/detail-mahasiswa.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
    declarations: [
@@ -47,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       Ng2SearchPipeModule,
       NgxPaginationModule,
       BsDatepickerModule.forRoot(),
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      ModalModule.forRoot()
    ],
    providers: [
       RegisService,

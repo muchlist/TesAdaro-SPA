@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertifyService } from '../_services/alertify.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-mahasiswa',
@@ -14,7 +15,13 @@ export class MahasiswaComponent implements OnInit {
   registerModeMahasiswa = false;
   detailModeMahasiswa = false;
 
-  constructor(private http: HttpClient, private alertify: AlertifyService) { }
+  // Confirm Box
+  modalRef: BsModalRef;
+  message: string;
+
+  constructor(private http: HttpClient,
+              private alertify: AlertifyService,
+              private modalService: BsModalService) { }
 
   ngOnInit() {
     this.getMahasiswa();
@@ -45,6 +52,34 @@ export class MahasiswaComponent implements OnInit {
 
   cancelDetailMode(registerMode: boolean) {
     this.detailModeMahasiswa = registerMode;
+  }
+
+  setMahasiswaId(id: number) {
+    this.mahasiswaIdClick = id;
+  }
+
+  deleteMahasiswa() {
+    this.http.delete(this.baseUrl + 'mahasiswa/' + this.mahasiswaIdClick).subscribe(() => {
+      this.alertify.success('Mahasiswa di hapus');
+      this.getMahasiswa();
+    }, error => {
+      this.alertify.error(error);
+    }
+    );
+  }
+
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  confirm(): void {
+    this.deleteMahasiswa();
+    this.modalRef.hide();
+  }
+
+  decline(): void {
+    this.modalRef.hide();
   }
 
 }

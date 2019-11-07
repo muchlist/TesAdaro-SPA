@@ -11,7 +11,7 @@
     </div>
 
 
-    <button class="btn btn-primary" (click)="registerToggle()">Tambah Mahasiswa</button>
+    <button class="btn btn-primary" (click)="registerToggle()"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Mahasiswa</button>
 
 
   </nav>
@@ -23,8 +23,8 @@
           <th style="width: 20.00%">Nama</th>
           <th style="width: 15.00%">Tanggal Lahir</th>
           <th style="width: 10.00%">JK</th>
-          <th style="width: 25.00%">Alamat</th>
-          <th style="width: 25.00%">Aksi</th>
+          <th style="width: 30.00%">Alamat</th>
+          <th style="width: 20.00%">Aksi</th>
         </tr>
       </thead>
       <tbody>
@@ -37,9 +37,9 @@
           <td>{{mahasiswa.alamat}}</td>
           <td>
             <div>
-              <button class="btn btn-info mr-1" (click)="detailToggle(mahasiswa.id)">Detail</button>
-              <button class="btn btn-light mr-1" (click)="detailToggle(mahasiswa.id)">Ubah</button>
-              <button class="btn btn-danger" (click)="detailToggle(3)">Hapus</button>
+              <button class="btn btn-outline-success mr-1" (click)="detailToggle(mahasiswa.id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+              <button class="btn btn-outline-info mr-1" (click)="detailToggle(mahasiswa.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+              <button class="btn btn-outline-danger" (click)="openModal(template); setMahasiswaId(mahasiswa.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </div>
           </td>
         </tr>
@@ -60,7 +60,16 @@
 </div>
 
 
-<!-- REGISTER -->
+<!-- DETAIL -->
 <div *ngIf="detailModeMahasiswa" class="container mt-5">
-  <app-detail-mahasiswa [idFromMahasiswa]="mahasiswaIdClick"></app-detail-mahasiswa>
+  <app-detail-mahasiswa [idFromMahasiswa]="mahasiswaIdClick" (cancelRegister)="cancelDetailMode($event)"></app-detail-mahasiswa>
 </div>
+
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Konfirmasi untuk menghapus?</p>
+    <button type="button" class="btn btn-danger mr-1" (click)="confirm()" >Ya</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Tidak</button>
+  </div>
+</ng-template>
