@@ -36,7 +36,7 @@
           <td>
             <div>
               <button class="btn btn-outline-info mr-1" (click)="registerToggle()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              <button class="btn btn-outline-danger" (click)="registerToggle()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              <button class="btn btn-outline-danger" (click)="openModal(template); setPerkuliahanId(perkuliahan.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </div>
           </td>
         </tr>
@@ -55,3 +55,11 @@
     </div>
   </div>
 </div>
+
+<ng-template #template>
+    <div class="modal-body text-center">
+      <p>Konfirmasi untuk menghapus?</p>
+      <button type="button" class="btn btn-danger mr-1" (click)="confirm()" >Ya</button>
+      <button type="button" class="btn btn-primary" (click)="decline()" >Tidak</button>
+    </div>
+  </ng-template>

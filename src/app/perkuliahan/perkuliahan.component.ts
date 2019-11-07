@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertifyService } from '../_services/alertify.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-perkuliahan',
@@ -10,10 +11,15 @@ import { AlertifyService } from '../_services/alertify.service';
 export class PerkuliahanComponent implements OnInit {
 
   baseUrl = 'http://localhost:5000/api/';
+  perkuliahanIdClick: number;
   perkuliahans: any;
   registerModePerkuliahan = false;
 
-  constructor(private http: HttpClient, private alertify: AlertifyService) { }
+  // Confirm Box
+  modalRef: BsModalRef;
+  message: string;
+
+  constructor(private http: HttpClient, private alertify: AlertifyService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.getPerkuliahan();
@@ -34,6 +40,33 @@ export class PerkuliahanComponent implements OnInit {
 
   cancelRegisterMode(registerMode: boolean) {
     this.registerModePerkuliahan = registerMode;
+  }
+
+  setPerkuliahanId(id: number) {
+    this.perkuliahanIdClick = id;
+  }
+
+  deletePerkuliahan() {
+    this.http.delete(this.baseUrl + 'perkuliahan/' + this.perkuliahanIdClick).subscribe(() => {
+      this.alertify.success('Perkuliahan di hapus');
+      this.getPerkuliahan();
+    }, error => {
+      this.alertify.error(error);
+    }
+    );
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  confirm(): void {
+    this.deletePerkuliahan();
+    this.modalRef.hide();
+  }
+
+  decline(): void {
+    this.modalRef.hide();
   }
 
 }
