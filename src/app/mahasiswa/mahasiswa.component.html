@@ -29,7 +29,7 @@
       </thead>
       <tbody>
         <tr
-          *ngFor="let mahasiswa of mahasiswas | filter:filter| paginate: {itemsPerPage:5,currentPage:p} ; let i = index">
+          *ngFor="let mahasiswa of mahasiswas | filter : filter | paginate: {itemsPerPage:5,currentPage:p} ; let i = index">
           <td>{{mahasiswa.nim}}</td>
           <td>{{mahasiswa.namaMhs}}</td>
           <td>{{mahasiswa.tglLahir | date:'dd/MM/yyyy'}}</td>

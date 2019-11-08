@@ -8,6 +8,10 @@ import { AlertifyService } from '../_services/alertify.service';
   styleUrls: ['./mata-kuliah.component.css']
 })
 export class MataKuliahComponent implements OnInit {
+  // Filtering
+  filter: any;
+  p: any;
+
   baseUrl = 'http://localhost:5000/api/';
   matkuls: any;
   registerModeMatkul = false;

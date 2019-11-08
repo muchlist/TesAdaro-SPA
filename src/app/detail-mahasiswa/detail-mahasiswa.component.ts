@@ -15,6 +15,10 @@ export class DetailMahasiswaComponent implements OnInit {
   model: any = {};
   modelperkuliahan: any = {};
 
+  // Filtering
+  filter: any;
+  p: any;
+
   constructor(private http: HttpClient, private alertify: AlertifyService) { }
 
   ngOnInit() {

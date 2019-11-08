@@ -10,6 +10,11 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class MahasiswaComponent implements OnInit {
   baseUrl = 'http://localhost:5000/api/';
+
+  // Filtering
+  filter: any;
+  p: any;
+
   mahasiswas: any;
   mahasiswaIdClick: number;
   registerModeMahasiswa = false;

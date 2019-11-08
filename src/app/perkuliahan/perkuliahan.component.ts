@@ -11,6 +11,10 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class PerkuliahanComponent implements OnInit {
 
   baseUrl = 'http://localhost:5000/api/';
+  // Filtering
+  filter: any;
+  p: any;
+
   perkuliahanIdClick: number;
   perkuliahans: any;
   registerModePerkuliahan = false;

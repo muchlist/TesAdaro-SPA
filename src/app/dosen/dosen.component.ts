@@ -10,6 +10,10 @@ import { AlertifyService } from '../_services/alertify.service';
 export class DosenComponent implements OnInit {
 
   baseUrl = 'http://localhost:5000/api/';
+  // Filtering
+  filter: any;
+  p: any;
+
   dosens: any;
   registerModeDosen = false;
 
