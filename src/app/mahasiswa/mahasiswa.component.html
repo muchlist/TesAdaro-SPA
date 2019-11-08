@@ -1,4 +1,4 @@
-<div class="container mt-3" *ngIf="!registerModeMahasiswa && !detailModeMahasiswa">
+<div class="container mt-3" *ngIf="!registerModeMahasiswa && !detailModeMahasiswa && !editModeMahasiswa">
   <h2 class="text text-primary">Data Mahasiswa</h2>
   <hr>
   <nav class="navbar">
@@ -38,7 +38,7 @@
           <td>
             <div>
               <button class="btn btn-outline-success mr-1" (click)="detailToggle(mahasiswa.id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
-              <button class="btn btn-outline-info mr-1" (click)="detailToggle(mahasiswa.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+              <button class="btn btn-outline-info mr-1" (click)="editToggle(mahasiswa.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
               <button class="btn btn-outline-danger" (click)="openModal(template); setMahasiswaId(mahasiswa.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </div>
           </td>
@@ -55,6 +55,16 @@
     <div class="col-4">
       <app-register-mahasiswa (cancelRegister)="cancelRegisterMode($event)" (updateMahasiswa)="getMahasiswa()">
       </app-register-mahasiswa>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT -->
+<div *ngIf="editModeMahasiswa" class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-edit-mahasiswa [idFromMahasiswaToEdit]="mahasiswaIdClick" (cancelEdit)="cancelEditMode($event)" (updateMahasiswa)="getMahasiswa()">
+      </app-edit-mahasiswa>
     </div>
   </div>
 </div>

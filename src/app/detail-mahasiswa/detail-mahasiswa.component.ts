@@ -13,16 +13,27 @@ export class DetailMahasiswaComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   @Output() updateMahasiswa = new EventEmitter();
   model: any = {};
+  modelperkuliahan: any = {};
 
   constructor(private http: HttpClient, private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.getDetailMahasiswa();
+    this.getperkuliahanMahasiswa();
   }
 
   getDetailMahasiswa() {
     this.http.get(this.baseUrl + 'mahasiswa/' + this.idFromMahasiswa).subscribe(respose => {
       this.model = respose;
+    }, error => {
+      this.alertify.error(error);
+    }
+    );
+  }
+
+  getperkuliahanMahasiswa() {
+    this.http.get(this.baseUrl + 'perkuliahan/mhs/' + this.idFromMahasiswa).subscribe(respose => {
+      this.modelperkuliahan = respose;
     }, error => {
       this.alertify.error(error);
     }

@@ -14,6 +14,7 @@ export class MahasiswaComponent implements OnInit {
   mahasiswaIdClick: number;
   registerModeMahasiswa = false;
   detailModeMahasiswa = false;
+  editModeMahasiswa = false;
 
   // Confirm Box
   modalRef: BsModalRef;
@@ -52,6 +53,16 @@ export class MahasiswaComponent implements OnInit {
 
   cancelDetailMode(registerMode: boolean) {
     this.detailModeMahasiswa = registerMode;
+  }
+
+  editToggle(mahasiswaId: number) {
+    this.mahasiswaIdClick = mahasiswaId;
+    return this.editModeMahasiswa = true;
+  }
+
+
+  cancelEditMode(registerMode: boolean) {
+    this.editModeMahasiswa = registerMode;
   }
 
   setMahasiswaId(id: number) {

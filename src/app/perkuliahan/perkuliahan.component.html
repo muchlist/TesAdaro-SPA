@@ -1,4 +1,4 @@
-<div class="container mt-3" *ngIf="!registerModePerkuliahan">
+<div class="container mt-3" *ngIf="!registerModePerkuliahan && !editModePerkuliahan">
   <h2 class="text text-primary">Data Perkuliahan</h2>
   <hr>
   <nav class="navbar">
@@ -35,7 +35,7 @@
           <td>{{perkuliahan.dosen.namaDosen}}</td>
           <td>
             <div>
-              <button class="btn btn-outline-info mr-1" (click)="registerToggle()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+              <button class="btn btn-outline-info mr-1" (click)="editToggle(perkuliahan.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
               <button class="btn btn-outline-danger" (click)="openModal(template); setPerkuliahanId(perkuliahan.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </div>
           </td>
@@ -52,6 +52,16 @@
     <div class="col-4">
       <app-register-perkuliahan (cancelRegister)="cancelRegisterMode($event)" (updatePerkuliahan)="getPerkuliahan()">
       </app-register-perkuliahan>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT -->
+<div *ngIf="editModePerkuliahan" class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-edit-perkuliahan [idFromPerkuliahanForEdit]="perkuliahanIdClick" (cancelEdit)="cancelEditMode($event)" (updatePerkuliahan)="getPerkuliahan()">
+      </app-edit-perkuliahan>
     </div>
   </div>
 </div>

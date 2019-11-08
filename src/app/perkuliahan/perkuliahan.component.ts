@@ -14,6 +14,7 @@ export class PerkuliahanComponent implements OnInit {
   perkuliahanIdClick: number;
   perkuliahans: any;
   registerModePerkuliahan = false;
+  editModePerkuliahan = false;
 
   // Confirm Box
   modalRef: BsModalRef;
@@ -40,6 +41,15 @@ export class PerkuliahanComponent implements OnInit {
 
   cancelRegisterMode(registerMode: boolean) {
     this.registerModePerkuliahan = registerMode;
+  }
+
+  editToggle(id: number) {
+    this.perkuliahanIdClick = id;
+    return this.editModePerkuliahan = true;
+  }
+
+  cancelEditMode(editMode: boolean) {
+    this.editModePerkuliahan = editMode;
   }
 
   setPerkuliahanId(id: number) {

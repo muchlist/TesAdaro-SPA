@@ -24,6 +24,8 @@ import { DetailMahasiswaComponent } from './detail-mahasiswa/detail-mahasiswa.co
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { EditMahasiswaComponent } from './edit-mahasiswa/edit-mahasiswa.component';
+import { EditPerkuliahanComponent } from './edit-perkuliahan/edit-perkuliahan.component';
 
 @NgModule({
    declarations: [
@@ -37,7 +39,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       RegisterMataKuliahComponent,
       PerkuliahanComponent,
       RegisterPerkuliahanComponent,
-      DetailMahasiswaComponent
+      DetailMahasiswaComponent,
+      EditMahasiswaComponent,
+      EditPerkuliahanComponent
    ],
    imports: [
       BrowserModule,

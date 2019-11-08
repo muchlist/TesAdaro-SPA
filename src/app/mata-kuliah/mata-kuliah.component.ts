@@ -27,6 +27,16 @@ export class MataKuliahComponent implements OnInit {
     );
   }
 
+  deleteMatkul(id: any) {
+    return this.http.delete(this.baseUrl + 'matakuliah/' + id).subscribe(() => {
+      this.alertify.error('MataKuliah Dihapus');
+    }, error => {
+      this.alertify.error(error);
+    }, () => {
+      this.getMataKuliah();
+    });
+  }
+
   registerToggle() {
     return this.registerModeMatkul = true;
   }

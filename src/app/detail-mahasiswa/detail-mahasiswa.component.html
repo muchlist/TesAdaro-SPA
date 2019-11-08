@@ -37,16 +37,16 @@
           <thead>
             <tr>
               <th>Nilai</th>
-              <th>DosenId</th>
-              <th>MataKuliahId</th>
+              <th>Nama Dosen</th>
+              <th>MataKuliah</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              *ngFor="let perkuliahan of model.perkuliahans | filter:filter| paginate: {itemsPerPage:5,currentPage:p} ; let i = index">
+              *ngFor="let perkuliahan of modelperkuliahan | filter:filter| paginate: {itemsPerPage:5,currentPage:p} ; let i = index">
               <td>{{perkuliahan.nilai}}</td>
-              <td>{{perkuliahan.dosenId}}</td>
-              <td>{{perkuliahan.mataKuliahId}}</td>
+              <td>{{perkuliahan.dosen.namaDosen}}</td>
+              <td>{{perkuliahan.mataKuliah.namaMK}}</td>
             </tr>
           </tbody>
         </table>
