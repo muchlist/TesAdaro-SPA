@@ -84,6 +84,17 @@ export class MahasiswaComponent implements OnInit {
     );
   }
 
+  onSearchChange(searchValue: string) {
+    if (searchValue === '') {
+      this.getMahasiswa();
+    }
+    this.http.get(this.baseUrl + 'mahasiswa/search/' + searchValue).subscribe(respose => {
+      this.mahasiswas = respose;
+    }, error => {
+    }
+    );
+  }
+
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
