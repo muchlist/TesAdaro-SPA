@@ -19,7 +19,7 @@ export class RegisterMataKuliahComponent implements OnInit {
 
   register() {
     this.regisService.registerMataKuliah(this.model).subscribe(() => {
-      this.alertify.success('Dosen Ditambahkan');
+      this.alertify.success('Mata Kuliah Ditambahkan');
     }, error => {
       this.alertify.error(error);
     }, () => {
